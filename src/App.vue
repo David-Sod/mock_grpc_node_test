@@ -28,7 +28,7 @@ export default {
         denom: "uscrt",
       });
 
-      console.log(`I have ${amount } SCRT!`);
+      console.log(`I have ${amount} SCRT!`);
 
       const sSCRT = "secret18vd8fpwxzck93qlwghaj6arh4p7c5n8978vsyg";
       // Get codeHash using `secretcli q compute contract-hash secret1k0jntykt7e4g3y88ltc60czgjuqdy4c9e8fzek`
@@ -42,8 +42,11 @@ export default {
       });
 
       console.log(`sSCRT has ${token_info.decimals} decimals!`);
+
+      const res = await secretjs.query.tendermint.getLatestBlock();
+      console.log(res.block);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
   },
 };
